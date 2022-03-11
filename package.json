@@ -9,7 +9,8 @@
 		"dev": "next dev --port $npm_package_config_port",
 		"build": "next build",
 		"start": "next start --port $npm_package_config_port",
-		"lint": "next lint"
+		"lint": "next lint",
+		"clean": "rm -rf node_modules yarn.lock"
 	},
 	"dependencies": {
 		"nanoid": "^3.3.1",
