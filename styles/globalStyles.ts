@@ -1,8 +1,10 @@
 import css from "styled-jsx/css"
-import { Colors } from "./colors"
-import { Themes } from "./themes"
+import Colors from "./colors"
+import Theme from "./themes"
 
-export const GlobalStyles = css.global`
+const GlobalStyles = css.global`
+	@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 	/* RESETS */
 	body,
 	h1,
@@ -38,8 +40,8 @@ export const GlobalStyles = css.global`
 	}
 
 	body {
-		font-family: Verdana, Geneva, Tahoma, sans-serif;
-		background-color: ${Colors.white};
+		font-family: "Poppins", sans-serif;
+		color: ${Colors.text.dark};
 	}
 
 	h1,
@@ -48,8 +50,33 @@ export const GlobalStyles = css.global`
 	h4,
 	h5,
 	h6 {
-		font-weight: bold;
-		color: ${Colors.text.dark};
+		font-family: "Fredoka One", cursive;
+		font-weight: normal;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	h4 {
+		font-size: 15px;
+	}
+	h5 {
+	}
+	p {
+		font-size: 15px;
 	}
 
 	p,
@@ -60,7 +87,19 @@ export const GlobalStyles = css.global`
 	ol,
 	li {
 		font-family: "Poppins", sans-serif;
-		color: ${Colors.text.dark};
+		color: inherit;
+		font-weight: normal;
+	}
+
+	li {
+		margin: 10px 0;
+		list-style-type: disc;
+		text-align: left;
+	}
+
+	p,
+	ul {
+		margin: 20px 0;
 	}
 
 	a,
@@ -71,23 +110,28 @@ export const GlobalStyles = css.global`
 		background-color: transparent;
 		padding: 0;
 		margin: 0;
-		font-weight: bold;
 		cursor: pointer;
 	}
 
-	.btn {
+	.btn-confirm {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 80%;
-		background-color: ${Colors.blue[500]};
+		background-color: ${Colors.moneyMarket.purple};
 		color: ${Colors.white};
 		height: 50px;
-		border-radius: ${Themes.borderRadius};
+		border-radius: 50px;
 		font-size: 18px;
 		font-weight: normal;
 		margin: 20px 0;
 		margin-bottom: 50px;
+	}
+
+	.disabled {
+		pointer-events: none;
+		cursor: not-allowed;
+		background-color: ${Colors.muted[400]};
 	}
 
 	.react-tabs {
@@ -99,7 +143,7 @@ export const GlobalStyles = css.global`
 		flex-direction: row;
 		justify-content: space-evenly;
 		align-items: center;
-		border-radius: ${Themes.borderRadius};
+		border-radius: ${Theme.borderRadius};
 		width: 80%;
 		margin: 20px auto;
 		background-color: ${Colors.muted[300]};
@@ -115,6 +159,8 @@ export const GlobalStyles = css.global`
 		text-align: center;
 		cursor: pointer;
 		white-space: nowrap;
+		list-style-type: none;
+		margin: 0;
 	}
 
 	.react-tabs__tab-panel {
@@ -125,22 +171,61 @@ export const GlobalStyles = css.global`
 	}
 
 	.react-tabs__tab:first-of-type {
-		border-top-left-radius: ${Themes.borderRadius};
+		border-top-left-radius: ${Theme.borderRadius};
 		border-top-right-radius: 0px;
 		border-bottom-right-radius: 0px;
-		border-bottom-left-radius: ${Themes.borderRadius};
+		border-bottom-left-radius: ${Theme.borderRadius};
 	}
 
 	.react-tabs__tab:last-of-type {
 		border-top-left-radius: 0px;
-		border-top-right-radius: ${Themes.borderRadius};
-		border-bottom-right-radius: ${Themes.borderRadius};
+		border-top-right-radius: ${Theme.borderRadius};
+		border-bottom-right-radius: ${Theme.borderRadius};
 		border-bottom-left-radius: 0px;
 	}
 
 	.react-tabs__tab--selected {
-		background-color: ${Colors.blue[500]};
+		background-color: ${Colors.moneyMarket.purple};
 		color: ${Colors.white};
 		font-weight: bold;
 	}
+
+	.custom-select {
+		border-radius: ${Theme.borderRadius};
+	}
+
+	.custom-select__control {
+		height: 40px;
+		border-radius: ${Theme.borderRadius};
+		margin-right: 5px;
+	}
+	.custom-select__control--is-focused {
+		box-shadow: none;
+		border-color: ${Colors.moneyMarket.purple};
+	}
+
+	@media (min-width: 610px) {
+		h2 {
+			font-size: 35px;
+		}
+		h4 {
+			font-size: 20px;
+		}
+		.sub-copy {
+			font-size: 18px;
+		}
+	}
+	@media (min-width: 1024px) {
+		h2 {
+			font-size: 40px;
+		}
+		h4 {
+			font-size: 25px;
+		}
+		.sub-copy {
+			font-size: 20px;
+		}
+	}
 `
+
+export default GlobalStyles

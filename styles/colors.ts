@@ -1,23 +1,67 @@
-export const Colors = {
+const Colors = {
 	contrastThreshold: 7,
 	white: "#ffffff",
 	black: "#000000",
 	text: {
-		light: "#eeeeee",
-		dark: "#333333",
+		light: "#C7CCD4",
+		dark: "#57606F",
 	},
-	rose: {
-		50: "#fff1f2",
-		100: "#ffe4e6",
-		200: "#fecdd3",
-		300: "#fda4af",
-		400: "#fb7185",
-		500: "#f43f5e",
-		600: "#e11d48",
-		700: "#be123c",
-		800: "#9f1239",
-		900: "#881337",
+
+	// Brand specific colors
+	computicket: {
+		red: "#e31f3e",
+		pink: "#e313fe",
 	},
+
+	moneyMarket: {
+		red: "#ED1C24",
+		maroon: "#CE181E",
+		purple: "#5F2F65",
+		green: "#0A9BA9",
+		grey: "#747D8C",
+		yellow: "#FDC231",
+		navy: "#2F3542",
+		stone: "#444c58",
+		teal: "#047B8D",
+	},
+
+	shoprite: {
+		red: "#ea2127",
+	},
+
+	checkers: {
+		teal: "#00A8A0",
+	},
+
+	checkersHyper: {
+		green: "#50B848",
+	},
+
+	bloemskou: {
+		blue: "#0c64a4",
+		green: "#10a94f",
+	},
+
+	// Status color palette
+	success: "#10b981",
+	error: "#f43f5e",
+	warning: "#f97316",
+	danger: "#ef4444",
+	info: "#2684ff",
+	muted: {
+		50: "#fafafa",
+		100: "#f5f5f5",
+		200: "#e5e5e5",
+		300: "#cccccc",
+		400: "#a3a3a3",
+		500: "#737373",
+		600: "#525252",
+		700: "#404040",
+		800: "#262626",
+		900: "#888888",
+	},
+
+	// General color palette
 	pink: {
 		50: "#fdf2f8",
 		100: "#fce7f3",
@@ -222,30 +266,6 @@ export const Colors = {
 		800: "#991b1b",
 		900: "#7f1d1d",
 	},
-	warmGray: {
-		50: "#fafaf9",
-		100: "#f5f5f4",
-		200: "#e7e5e4",
-		300: "#d6d3d1",
-		400: "#a8a29e",
-		500: "#78716c",
-		600: "#57534e",
-		700: "#44403c",
-		800: "#292524",
-		900: "#1c1917",
-	},
-	trueGray: {
-		50: "#fafafa",
-		100: "#f5f5f5",
-		200: "#e5e5e5",
-		300: "#d4d4d4",
-		400: "#a3a3a3",
-		500: "#737373",
-		600: "#525252",
-		700: "#404040",
-		800: "#262626",
-		900: "#171717",
-	},
 	gray: {
 		50: "#fafafa",
 		100: "#f4f4f5",
@@ -258,103 +278,6 @@ export const Colors = {
 		800: "#27272a",
 		900: "#18181b",
 	},
-	coolGray: {
-		50: "#f9fafb",
-		100: "#f3f4f6",
-		200: "#e5e7eb",
-		300: "#d1d5db",
-		400: "#9ca3af",
-		500: "#6b7280",
-		600: "#4b5563",
-		700: "#374151",
-		800: "#1f2937",
-		900: "#111827",
-	},
-	blueGray: {
-		50: "#f8fafc",
-		100: "#f1f5f9",
-		200: "#e2e8f0",
-		300: "#cbd5e1",
-		400: "#94a3b8",
-		500: "#64748b",
-		600: "#475569",
-		700: "#334155",
-		800: "#1e293b",
-		900: "#0f172a",
-	},
-	dark: {
-		50: "#18181b",
-		100: "#27272a",
-		200: "#3f3f46",
-		300: "#52525b",
-		400: "#71717a",
-		500: "#a1a1aa",
-		600: "#d4d4d8",
-		700: "#e4e4e7",
-		800: "#f4f4f5",
-		900: "#fafafa",
-	},
-	primary: {
-		50: "#ffe4ea",
-		100: "#fcb9c3",
-		200: "#f38d9d",
-		300: "#ec5f76",
-		400: "#e5334f",
-		500: "#e31f3e",
-		600: "#a0122a",
-		700: "#720a1d",
-		800: "#470310",
-		900: "#1f0004",
-	},
-	secondary: {
-		50: "#ffe3ff",
-		100: "#f9b1ff",
-		200: "#f17fff",
-		300: "#eb4cff",
-		400: "#e41afe",
-		500: "#e313fe",
-		600: "#9d00b3",
-		700: "#710080",
-		800: "#45004e",
-		900: "#1a001e",
-	},
-	moneyMarket: {
-		red: {
-			light: "#e68b8e",
-			medium: "#ce181e",
-		},
-		purple: "#5F2F65",
-		green: "#0A9BA9",
-		grey: {
-			light: "#dfe3e9",
-			medium: "#747d8c",
-			dark: "#5a5a5a",
-		},
-		yellow: {
-			light: "#fee098",
-			dark: "#fdc231",
-		},
-		orange: "#f0712c",
-	},
-	bg: {
-		purple: "#4928aa",
-		pink: "#7e34a3",
-		magenta: "b842a0",
-	},
-	danger: {},
-	error: {},
-	success: {},
-	warning: {},
-	muted: {},
-	info: {},
-	light: {},
-	tertiary: {},
 }
-Colors.danger = Colors.red
-Colors.error = Colors.rose
-Colors.success = Colors.emerald
-Colors.warning = Colors.orange
-Colors.muted = Colors.trueGray
-Colors.tertiary = Colors.green
-Colors.info = Colors.lightBlue
-Colors.light = Colors.warmGray
+
+export default Colors

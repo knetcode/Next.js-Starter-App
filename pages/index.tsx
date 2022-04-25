@@ -1,9 +1,18 @@
 import React from "react"
 
-const Home = () => (
-	<div>
-		<h1>Docs and</h1>
-	</div>
-)
+const Home = () => {
+	return (
+		<>
+			<div className="home">
+				<h1>Home</h1>
+			</div>
+			<style jsx>{`
+				h1 {
+					font-size: 20px;
+				}
+			`}</style>
+		</>
+	)
+}
 
 export default Home

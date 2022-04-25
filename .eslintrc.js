@@ -1,15 +1,17 @@
+const { off } = require("process")
+
 module.exports = {
 	env: {
 		browser: true,
 		node: true,
 	},
 	extends: [
-		"next",
 		"airbnb",
 		"airbnb-typescript",
 		"plugin:import/recommended",
 		"plugin:import/typescript",
 		"prettier",
+		"plugin:@next/next/recommended",
 	],
 	plugins: ["@typescript-eslint", "import"],
 	settings: {
@@ -35,9 +37,14 @@ module.exports = {
 			},
 		],
 
-		// next
-		"@next/next/no-html-link-for-pages": "off",
+		// disabled
 		"react/jsx-props-no-spreading": "off",
+		"react/button-has-type": "off",
+		"@next/next/no-html-link-for-pages": "off",
+		"@next/next/no-img-element": "off",
+		"jsx-a11y/anchor-is-valid": "off",
+		"arrow-body-style": "off",
+		radix: "off",
 	},
 	overrides: [
 		{
@@ -52,7 +59,21 @@ module.exports = {
 			},
 		},
 	],
-	ignorePatterns: ["**/*.js", "**/*.json", "node_modules", "public", "styles", ".next", "coverage", "dist", ".turbo"],
+	ignorePatterns: [
+		"**/*.js",
+		"**/*.json",
+		"node_modules",
+		"public",
+		"styles",
+		".next",
+		"coverage",
+		"dist",
+		".turbo",
+		"api",
+		"Map.tsx",
+		"Marker.tsx",
+		"AutoComplete.tsx",
+	],
 	parserOptions: {
 		tsconfigRootDir: __dirname,
 		project: "./tsconfig.json",
