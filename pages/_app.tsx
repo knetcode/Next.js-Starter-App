@@ -8,15 +8,17 @@ type Props = {
 	pageProps: any
 }
 
-const App = ({ Component, pageProps }: Props) => (
-	<>
-		<Head>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		</Head>
-		<Component {...pageProps} />
-		<style jsx>{GlobalStyles}</style>
-	</>
-)
+const App = ({ Component, pageProps }: Props) => {
+	return (
+		<>
+			<Head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			</Head>
+			<Component {...pageProps} />
+			<style jsx>{GlobalStyles}</style>
+		</>
+	)
+}
 
 //  Disable static optimization to always server render, making nonce unique on every request
 App.getInitialProps = () => ({})

@@ -174,7 +174,7 @@ const GlobalStyles = css.global`
 		font-weight: bold;
 	}
 
-	@media (min-width: 610px) {
+	@media (min-width: ${process.env.mobileBreakpoint}) {
 		h2 {
 			font-size: 35px;
 		}
@@ -185,7 +185,8 @@ const GlobalStyles = css.global`
 			font-size: 18px;
 		}
 	}
-	@media (min-width: 1024px) {
+
+	@media (min-width: ${process.env.tabletBreakpoint}) {
 		h2 {
 			font-size: 40px;
 		}
