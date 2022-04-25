@@ -73,10 +73,15 @@ const GlobalStyles = css.global`
 	h4 {
 		font-size: 15px;
 	}
+
 	h5 {
 	}
+
 	p {
 		font-size: 15px;
+	}
+
+	.sub-copy {
 	}
 
 	p,
@@ -111,27 +116,6 @@ const GlobalStyles = css.global`
 		padding: 0;
 		margin: 0;
 		cursor: pointer;
-	}
-
-	.btn-confirm {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 80%;
-		background-color: ${Colors.moneyMarket.purple};
-		color: ${Colors.white};
-		height: 50px;
-		border-radius: 50px;
-		font-size: 18px;
-		font-weight: normal;
-		margin: 20px 0;
-		margin-bottom: 50px;
-	}
-
-	.disabled {
-		pointer-events: none;
-		cursor: not-allowed;
-		background-color: ${Colors.muted[400]};
 	}
 
 	.react-tabs {
@@ -188,20 +172,6 @@ const GlobalStyles = css.global`
 		background-color: ${Colors.moneyMarket.purple};
 		color: ${Colors.white};
 		font-weight: bold;
-	}
-
-	.custom-select {
-		border-radius: ${Theme.borderRadius};
-	}
-
-	.custom-select__control {
-		height: 40px;
-		border-radius: ${Theme.borderRadius};
-		margin-right: 5px;
-	}
-	.custom-select__control--is-focused {
-		box-shadow: none;
-		border-color: ${Colors.moneyMarket.purple};
 	}
 
 	@media (min-width: 610px) {
