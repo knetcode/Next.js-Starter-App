@@ -44,6 +44,7 @@ module.exports = {
 		"@next/next/no-img-element": "off",
 		"jsx-a11y/anchor-is-valid": "off",
 		"arrow-body-style": "off",
+		"react/no-array-index-key": "off",
 		radix: "off",
 	},
 	overrides: [

@@ -14,7 +14,7 @@ class CustomDocument extends Document {
 			contentSecurityPolicy += `child-src 'self';`
 			contentSecurityPolicy += `default-src 'self';`
 			contentSecurityPolicy += `form-action 'self';`
-			contentSecurityPolicy += `font-src 'self' https://fonts.gstatic.com;`
+			contentSecurityPolicy += `font-src 'self' data: ;`
 			contentSecurityPolicy += `frame-ancestors 'self';`
 			contentSecurityPolicy += `frame-src 'self';`
 			contentSecurityPolicy += `img-src 'self' data: blob: https://maps.googleapis.com https://icon-library.com https://maps.gstatic.com;`
@@ -22,14 +22,14 @@ class CustomDocument extends Document {
 			contentSecurityPolicy += `media-src 'self';`
 			contentSecurityPolicy += `object-src 'self';`
 			contentSecurityPolicy += `script-src 'self' https://maps.googleapis.com;`
-			contentSecurityPolicy += `style-src 'self' https://fonts.googleapis.com 'nonce-${nonce}';`
+			contentSecurityPolicy += `style-src 'self' 'nonce-${nonce}';`
 			contentSecurityPolicy += `worker-src 'self';`
 			contentSecurityPolicy += `block-all-mixed-content ;`
 		} else {
 			contentSecurityPolicy += `connect-src 'self' 'unsafe-inline' https://maps.googleapis.com;`
 			contentSecurityPolicy += `default-src 'self' 'unsafe-inline';`
 			contentSecurityPolicy += `form-action 'self';`
-			contentSecurityPolicy += `font-src 'self' 'unsafe-inline' https://fonts.gstatic.com;`
+			contentSecurityPolicy += `font-src 'self' 'unsafe-inline' https://fonts.gstatic.com data:;`
 			contentSecurityPolicy += `frame-src 'unsafe-inline';`
 			contentSecurityPolicy += `img-src 'self' 'unsafe-inline' data: blob: https://maps.googleapis.com https://icon-library.com https://maps.gstatic.com;`
 			contentSecurityPolicy += `manifest-src 'unsafe-inline';`
@@ -52,8 +52,9 @@ class CustomDocument extends Document {
 					<meta property="csp-nonce" content={this.props.nonce} />
 					<meta charSet="UTF-8" />
 					<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-					<link rel="preconnect" href="https://fonts.googleapis.com" />
-					<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+					<html lang="en" />
+					<meta name="description" content="desc" />
+					<meta name="keywords" content="search, terms" />
 				</Head>
 				<body>
 					<Main />

@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode } from "react"
+import React, { ReactNode } from "react"
 
 type Props = {
 	children: ReactNode
@@ -9,7 +9,6 @@ type Props = {
 	gap?: string
 	padding?: string
 	margin?: string
-	styles?: CSSProperties
 } & typeof defaultProps
 
 const defaultProps = {
@@ -19,7 +18,6 @@ const defaultProps = {
 	gap: "0px",
 	padding: "0px",
 	margin: "0px",
-	styles: {},
 }
 
 const FormContents = ({
@@ -31,7 +29,6 @@ const FormContents = ({
 	gap,
 	padding,
 	margin,
-	styles,
 }: Props) => {
 	const onSubmitHandler = (e: any) => {
 		e.preventDefault()
@@ -40,7 +37,7 @@ const FormContents = ({
 
 	return (
 		<>
-			<form className="form" onSubmit={onSubmitHandler} style={styles}>
+			<form className="form" onSubmit={onSubmitHandler}>
 				{children}
 			</form>
 			<style jsx>{`

@@ -1,4 +1,4 @@
-import React, { CSSProperties, Dispatch, ReactNode, SetStateAction } from "react"
+import React, { Dispatch, ReactNode, SetStateAction } from "react"
 import { IoCloseCircleSharp } from "react-icons/io5"
 import Colors from "../../styles/colors"
 
@@ -7,20 +7,18 @@ type Props = {
 	showModal: boolean
 	setShowModal: Dispatch<SetStateAction<boolean>>
 	padding?: string
-	styles?: CSSProperties
 } & typeof defaultProps
 
 const defaultProps = {
 	padding: "20px 10px",
-	styles: {},
 }
 
-const Modal = ({ children, showModal, setShowModal, padding, styles }: Props) => {
+const Modal = ({ children, showModal, setShowModal, padding }: Props) => {
 	return (
 		showModal && (
 			<>
 				<div className="modal-outer">
-					<div className="modal-inner" style={styles}>
+					<div className="modal-inner">
 						<div className="close-modal">
 							<button type="button" onClick={() => setShowModal(false)}>
 								<IoCloseCircleSharp size={30} color={Colors.text.dark} />

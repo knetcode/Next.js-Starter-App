@@ -2,6 +2,7 @@ import React from "react"
 import Head from "next/head"
 import GlobalStyles from "../styles/globalStyles"
 import { wrapper } from "../redux/reduxConfig"
+import "../styles/fonts.css"
 
 type Props = {
 	Component: any

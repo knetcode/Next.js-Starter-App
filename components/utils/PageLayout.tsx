@@ -1,23 +1,38 @@
-import React, { CSSProperties, ReactNode } from "react"
+import Head from "next/head"
+import React, { ReactNode, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { setWindowWidth } from "../../redux/actions/appActions"
 
 type Props = {
 	children: ReactNode
-	styles?: CSSProperties
+	title?: string
 } & typeof defaultProps
 
 const defaultProps = {
-	styles: {},
+	title: "My Money Market Account",
 }
 
-const PageLayout = ({ children, styles }: Props) => {
+const PageLayout = ({ children, title }: Props) => {
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			dispatch(setWindowWidth(window.innerWidth))
+			window.addEventListener("resize", () => dispatch(setWindowWidth(window.innerWidth)))
+		}
+		return () => window.removeEventListener("resize", () => dispatch(setWindowWidth(window.innerWidth)))
+	}, [])
+
 	return (
 		<>
-			<div className="page-layout" style={styles}>
-				{children}
-			</div>
+			<Head>
+				<title>{title}</title>
+			</Head>
+			<div className="page-layout">{children}</div>
 			<style jsx>{`
 				.page-layout {
 					width: 100%;
+					padding-top: 120px;
 				}
 			`}</style>
 		</>

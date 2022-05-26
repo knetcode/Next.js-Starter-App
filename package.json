@@ -1,20 +1,17 @@
 {
 	"name": "next-starter",
 	"version": "0.0.1",
-	"config": {
-		"port": "3000"
-	},
 	"author": {
 		"name": "Kyle Esterhuizen",
 		"email": "kylee@computicket.com"
 	},
 	"private": true,
 	"scripts": {
-		"dev": "next dev --port $npm_package_config_port",
+		"dev": "next dev",
 		"build": "next build",
-		"start": "next start --port $npm_package_config_port",
+		"start": "next start",
 		"lint": "next lint",
-		"clean": "rm -rf node_modules yarn.lock"
+		"clean": "rm -rf node_modules yarn.lock package-lock.json"
 	},
 	"dependencies": {
 		"axios": "^0.26.1",

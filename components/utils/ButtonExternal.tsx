@@ -1,5 +1,6 @@
-import React, { CSSProperties } from "react"
+import React from "react"
 import Colors from "../../styles/colors"
+import buttonDefaults from "./buttonDefaultTypes"
 
 type Props = {
 	text: string
@@ -11,23 +12,12 @@ type Props = {
 	margin?: string
 	padding?: string
 	borderRadius?: string
+	fontSize?: string
 	fontWeight?: "normal" | "bold"
 	isDisabled?: boolean
-	styles?: CSSProperties
 } & typeof defaultProps
 
-const defaultProps = {
-	newTab: true,
-	textColor: Colors.white,
-	bgColor: Colors.moneyMarket.red,
-	borderColor: Colors.moneyMarket.red,
-	margin: "0px",
-	padding: "10px 20px",
-	borderRadius: "50px",
-	fontWeight: "bold",
-	isDisabled: false,
-	styles: {},
-}
+const defaultProps = buttonDefaults
 
 const ButtonExternal = ({
 	text,
@@ -40,25 +30,28 @@ const ButtonExternal = ({
 	padding,
 	isDisabled,
 	borderRadius,
+	fontSize,
 	fontWeight,
-	styles,
 }: Props) => {
 	return (
 		<>
-			<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer" style={styles}>
+			<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer">
 				{text}
 			</a>
 			<style jsx>{`
 				.btn {
 					margin: ${margin};
 					padding: ${padding};
+					border: 2px solid;
 					border-color: ${isDisabled ? Colors.muted[300] : borderColor};
 					border-radius: ${borderRadius};
 					background-color: ${isDisabled ? Colors.muted[300] : bgColor};
 					color: ${textColor};
+					font-size: ${fontSize};
 					font-weight: ${fontWeight};
 					cursor: ${isDisabled ? "not-allowed" : "pointer"};
 					pointer-events: ${isDisabled ? "none" : "all"};
+					white-space: nowrap;
 				}
 			`}</style>
 		</>

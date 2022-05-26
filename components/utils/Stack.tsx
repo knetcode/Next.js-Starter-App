@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode } from "react"
+import React, { ReactNode } from "react"
 import Colors from "../../styles/colors"
 
 type Props = {
@@ -13,7 +13,6 @@ type Props = {
 	textColor?: string
 	borderRadius?: string
 	boxShadow?: string
-	styles?: CSSProperties
 } & typeof defaultProps
 
 const defaultProps = {
@@ -26,7 +25,6 @@ const defaultProps = {
 	textColor: Colors.text.dark,
 	borderRadius: "0px",
 	boxShadow: "none",
-	styles: {},
 }
 
 const Stack = ({
@@ -41,13 +39,10 @@ const Stack = ({
 	textColor,
 	borderRadius,
 	boxShadow,
-	styles,
 }: Props) => {
 	return (
 		<>
-			<div className="stack" style={styles}>
-				{children}
-			</div>
+			<div className="stack">{children}</div>
 			<style jsx>{`
 				.stack {
 					display: flex;

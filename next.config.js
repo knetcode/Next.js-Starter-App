@@ -1,8 +1,5 @@
 const apiUrl = ""
-const elasticUrl = "https://prod-elk.computicket.com/renewal-ocr"
-const fetchTimeout = 20000
-const mobileBreakpoint = "610px"
-const tabletBreakpoint = "1024px"
+const elasticUrl = ""
 
 module.exports = {
 	reactStrictMode: true,
@@ -12,8 +9,20 @@ module.exports = {
 	env: {
 		apiUrl,
 		elasticUrl,
-		fetchTimeout,
-		mobileBreakpoint,
-		tabletBreakpoint,
+	},
+	experimental: { images: { layoutRaw: true } },
+
+	async headers() {
+		return [
+			{
+				source: "/fonts",
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=31536000, immutable",
+					},
+				],
+			},
+		]
 	},
 }
