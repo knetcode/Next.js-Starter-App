@@ -44,14 +44,12 @@ export const sendToElastic = async (body: any) => {
 					"Content-type": "application/json",
 					"Cache-control": "no-cache",
 				},
-				timeout: process.env.fetchTimeout,
+				timeout: 10000,
 			}
 		)
 		console.log(data)
-		return data
 	} catch (error) {
 		console.error(error)
-		return error
 	}
 }
 
