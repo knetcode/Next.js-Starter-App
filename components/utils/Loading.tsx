@@ -1,5 +1,5 @@
 import React from "react"
-import { useSelector } from "react-redux"
+import { useAppSelector } from "../../redux/hooks"
 import Colors from "../../styles/colors"
 
 type Props = {
@@ -11,8 +11,8 @@ const defaultProps = {
 }
 
 const Loading = ({ loadingOverride }: Props) => {
-	const isLoading = useSelector((state: any) => state.app.isLoading)
-	const loadingText = useSelector((state: any) => state.app.loadingText)
+	const isLoading = useAppSelector((state) => state.app.isLoading)
+	const loadingText = useAppSelector((state) => state.app.loadingText)
 
 	return (
 		(isLoading || loadingOverride) && (

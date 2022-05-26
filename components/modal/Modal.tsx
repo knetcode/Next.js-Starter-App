@@ -1,4 +1,5 @@
-import React, { Dispatch, ReactNode, SetStateAction } from "react"
+import React from "react"
+import type { Dispatch, ReactNode, SetStateAction } from "react"
 import { IoCloseCircleSharp } from "react-icons/io5"
 import Colors from "../../styles/colors"
 

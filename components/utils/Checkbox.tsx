@@ -1,4 +1,5 @@
-import React, { CSSProperties, Dispatch, SetStateAction, useRef } from "react"
+import React, { useRef } from "react"
+import type { CSSProperties, Dispatch, SetStateAction } from "react"
 import Colors from "../../styles/colors"
 
 type Props = {

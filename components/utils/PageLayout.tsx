@@ -1,7 +1,8 @@
+import React, { useEffect } from "react"
+import type { ReactNode } from "react"
 import Head from "next/head"
-import React, { ReactNode, useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { setWindowWidth } from "../../redux/actions/appActions"
+import { setWindowWidth } from "../../redux/appSlice"
+import { useAppDispatch } from "../../redux/hooks"
 
 type Props = {
 	children: ReactNode
@@ -13,7 +14,7 @@ const defaultProps = {
 }
 
 const PageLayout = ({ children, title }: Props) => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {

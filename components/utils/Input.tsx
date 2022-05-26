@@ -1,15 +1,16 @@
-import React, { useRef, Dispatch, SetStateAction } from "react"
-import { useDispatch } from "react-redux"
+import React, { useRef } from "react"
+import type { Dispatch, SetStateAction } from "react"
 import DOMPurify from "dompurify"
 import { FiEdit } from "react-icons/fi"
 import Colors from "../../styles/colors"
+import { useAppDispatch } from "../../redux/hooks"
 
 type Props = {
 	type?: "date" | "text" | "number"
-	labelText: string
+	labelText?: string
 	inputValue: string
 	setInputValue: Dispatch<SetStateAction<string>>
-	validator: boolean
+	validator?: boolean
 	placeholder?: string
 	maxLength?: number
 } & typeof defaultProps
@@ -18,10 +19,12 @@ const defaultProps = {
 	type: "text",
 	placeholder: "",
 	maxLength: 60,
+	labelText: "",
+	validator: true,
 }
 
 const Input = ({ type, labelText, inputValue, setInputValue, placeholder, validator, maxLength }: Props) => {
-	const dispatch = useDispatch<any>()
+	const dispatch = useAppDispatch()
 	const inputRef = useRef<HTMLInputElement>()
 
 	const dateStringify = (input: string) => {

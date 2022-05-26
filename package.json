@@ -1,5 +1,5 @@
 {
-	"name": "next-starter",
+	"name": "next-js-starter",
 	"version": "0.0.1",
 	"author": {
 		"name": "Kyle Esterhuizen",
@@ -14,6 +14,7 @@
 		"clean": "rm -rf node_modules yarn.lock package-lock.json"
 	},
 	"dependencies": {
+		"@reduxjs/toolkit": "^1.8.2",
 		"axios": "^0.26.1",
 		"dompurify": "^2.3.6",
 		"nanoid": "^3.3.3",

@@ -1,15 +1,11 @@
 import React from "react"
+import type { AppProps } from "next/app"
 import Head from "next/head"
 import GlobalStyles from "../styles/globalStyles"
 import { wrapper } from "../redux/reduxConfig"
 import "../styles/fonts.css"
 
-type Props = {
-	Component: any
-	pageProps: any
-}
-
-const App = ({ Component, pageProps }: Props) => {
+const App = ({ Component, pageProps }: AppProps) => {
 	return (
 		<>
 			<Head>
