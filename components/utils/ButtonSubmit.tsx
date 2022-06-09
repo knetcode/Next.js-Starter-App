@@ -4,8 +4,6 @@ import buttonDefaults from "./buttonDefaultTypes"
 
 type Props = {
 	text: string
-	link: string
-	newTab?: boolean
 	textColor?: string
 	bgColor?: string
 	borderColor?: string
@@ -19,10 +17,8 @@ type Props = {
 
 const defaultProps = buttonDefaults
 
-const ButtonExternal = ({
+const ButtonSubmit = ({
 	text,
-	link,
-	newTab,
 	bgColor,
 	textColor,
 	borderColor,
@@ -34,9 +30,9 @@ const ButtonExternal = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer">
+		<button type="submit" className="btn submit">
 			{text}
-		</a>
+		</button>
 		<style jsx>{`
 			.btn {
 				display: block;
@@ -58,6 +54,6 @@ const ButtonExternal = ({
 	</>
 )
 
-ButtonExternal.defaultProps = defaultProps
+ButtonSubmit.defaultProps = defaultProps
 
-export default ButtonExternal
+export default ButtonSubmit

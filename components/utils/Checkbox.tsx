@@ -1,5 +1,4 @@
-import React, { useRef } from "react"
-import type { CSSProperties, Dispatch, SetStateAction } from "react"
+import React, { Dispatch, SetStateAction, useRef } from "react"
 import Colors from "../../styles/colors"
 
 type Props = {
@@ -7,19 +6,14 @@ type Props = {
 	id: string
 	inputValue: boolean
 	setInputValue: Dispatch<SetStateAction<boolean>>
-	styles?: CSSProperties
-} & typeof defaultProps
-
-const defaultProps = {
-	styles: {},
 }
 
-const Checkbox = ({ labelText, id, inputValue, setInputValue, styles }: Props) => {
+const Checkbox = ({ labelText, id, inputValue, setInputValue }: Props) => {
 	const inputRef = useRef<HTMLInputElement>()
 
 	return (
 		<>
-			<div className="checkbox-group" style={styles}>
+			<div className="checkbox-group">
 				<input
 					className="checkbox-input"
 					type="checkbox"
@@ -54,7 +48,5 @@ const Checkbox = ({ labelText, id, inputValue, setInputValue, styles }: Props) =
 		</>
 	)
 }
-
-Checkbox.defaultProps = defaultProps
 
 export default Checkbox

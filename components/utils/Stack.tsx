@@ -1,12 +1,12 @@
-import React from "react"
-import type { ReactNode } from "react"
+import React, { ReactNode } from "react"
 import Colors from "../../styles/colors"
 
 type Props = {
 	children: ReactNode
-	flexDirection: "row" | "column"
+	flexDirection?: "row" | "column"
 	justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly"
 	alignItems?: "center" | "flex-start" | "flex-end"
+	flexWrap?: "wrap" | "nowrap" | "wrap-reverse"
 	gap?: string
 	padding?: string
 	margin?: string
@@ -17,8 +17,10 @@ type Props = {
 } & typeof defaultProps
 
 const defaultProps = {
+	flexDirection: "column",
 	justifyContent: "center",
 	alignItems: "center",
+	flexWrap: "nowrap",
 	gap: "0px",
 	padding: "0px",
 	margin: "0px",
@@ -33,6 +35,7 @@ const Stack = ({
 	flexDirection,
 	justifyContent,
 	alignItems,
+	flexWrap,
 	gap,
 	padding,
 	margin,
@@ -40,28 +43,27 @@ const Stack = ({
 	textColor,
 	borderRadius,
 	boxShadow,
-}: Props) => {
-	return (
-		<>
-			<div className="stack">{children}</div>
-			<style jsx>{`
-				.stack {
-					display: flex;
-					flex-direction: ${flexDirection};
-					justify-content: ${justifyContent};
-					align-items: ${alignItems};
-					gap: ${gap};
-					padding: ${padding};
-					margin: ${margin};
-					background-color: ${bgColor};
-					color: ${textColor};
-					border-radius: ${borderRadius};
-					box-shadow: ${boxShadow};
-				}
-			`}</style>
-		</>
-	)
-}
+}: Props) => (
+	<>
+		<div className="stack">{children}</div>
+		<style jsx>{`
+			.stack {
+				display: flex;
+				flex-direction: ${flexDirection};
+				justify-content: ${justifyContent};
+				align-items: ${alignItems};
+				flex-wrap: ${flexWrap};
+				gap: ${gap};
+				padding: ${padding};
+				margin: ${margin};
+				background-color: ${bgColor};
+				color: ${textColor};
+				border-radius: ${borderRadius};
+				box-shadow: ${boxShadow};
+			}
+		`}</style>
+	</>
+)
 
 Stack.defaultProps = defaultProps
 

@@ -1,5 +1,4 @@
-import React from "react"
-import type { ReactNode } from "react"
+import React, { ReactNode } from "react"
 import Colors from "../../styles/colors"
 
 type Props = {
@@ -21,19 +20,21 @@ type Props = {
 	gap?: string
 	flexWrap?: "nowrap" | "wrap" | "wrap-reverse"
 	padding?: string
+	width?: string
 } & typeof defaultProps
 
 const defaultProps = {
 	children: null,
-	topSkew: false,
-	botSkew: false,
+	topSkew: true,
+	botSkew: true,
 	bgColor: Colors.white,
 	textColor: Colors.text.dark,
 	justifyContent: "center",
 	alignItems: "center",
-	gap: "5px",
+	gap: "50px",
 	flexWrap: "nowrap",
-	padding: "50px 5%",
+	padding: "50px 0",
+	width: "80%",
 }
 
 const Block = ({
@@ -47,11 +48,14 @@ const Block = ({
 	gap,
 	flexWrap,
 	padding,
+	width,
 }: Props) => (
 	<>
 		<section className="block">
 			{topSkew && <div className="top skew" />}
-			<div className="inner">{children}</div>
+			<div className="inner">
+				<div className="content">{children}</div>
+			</div>
 			{botSkew && <div className="bot skew" />}
 		</section>
 		<style jsx>{`
@@ -81,18 +85,21 @@ const Block = ({
 			.inner {
 				background-color: ${bgColor};
 				margin: 0 auto;
+				width: 100%;
+				height: 100%;
+				position: relative;
+				padding: ${padding};
+			}
+			.content {
+				width: ${width};
+				max-width: 1200px;
+				margin: 0 auto;
 				display: flex;
 				flex-direction: column;
 				align-items: ${alignItems};
 				justify-content: ${justifyContent};
 				gap: ${gap};
 				flex-wrap: ${flexWrap};
-				width: 100%;
-				max-width: 1600px;
-				min-width: 280px;
-				height: 100%;
-				position: relative;
-				padding: ${padding};
 			}
 			@media (min-width: 1024px) {
 				.inner {

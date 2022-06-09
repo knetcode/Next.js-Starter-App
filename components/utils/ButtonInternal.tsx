@@ -1,10 +1,11 @@
 import React from "react"
+import Link from "next/link"
 import Colors from "../../styles/colors"
 import buttonDefaults from "./buttonDefaultTypes"
 
 type Props = {
 	text: string
-	onClick: () => void
+	link: string
 	textColor?: string
 	bgColor?: string
 	borderColor?: string
@@ -20,7 +21,7 @@ const defaultProps = buttonDefaults
 
 const ButtonInternal = ({
 	text,
-	onClick,
+	link,
 	bgColor,
 	textColor,
 	borderColor,
@@ -30,31 +31,31 @@ const ButtonInternal = ({
 	borderRadius,
 	fontSize,
 	fontWeight,
-}: Props) => {
-	return (
-		<>
-			<button className="btn function" onClick={onClick} type="button">
-				{text}
-			</button>
-			<style jsx>{`
-				.btn {
-					margin: ${margin};
-					padding: ${padding};
-					border: 2px solid;
-					border-color: ${isDisabled ? Colors.muted[300] : borderColor};
-					border-radius: ${borderRadius};
-					background-color: ${isDisabled ? Colors.muted[300] : bgColor};
-					color: ${textColor};
-					font-size: ${fontSize};
-					font-weight: ${fontWeight};
-					cursor: ${isDisabled ? "not-allowed" : "pointer"};
-					pointer-events: ${isDisabled ? "none" : "all"};
-					white-space: nowrap;
-				}
-			`}</style>
-		</>
-	)
-}
+}: Props) => (
+	<>
+		<Link href={link}>
+			<a className="btn internal">{text}</a>
+		</Link>
+		<style jsx>{`
+			.btn {
+				display: block;
+				width: min-content;
+				margin: ${margin};
+				padding: ${padding};
+				border: 2px solid;
+				border-color: ${isDisabled ? Colors.muted[300] : borderColor};
+				border-radius: ${borderRadius};
+				background-color: ${isDisabled ? Colors.muted[300] : bgColor};
+				color: ${textColor};
+				font-size: ${fontSize};
+				font-weight: ${fontWeight};
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
+				pointer-events: ${isDisabled ? "none" : "all"};
+				white-space: nowrap;
+			}
+		`}</style>
+	</>
+)
 
 ButtonInternal.defaultProps = defaultProps
 
