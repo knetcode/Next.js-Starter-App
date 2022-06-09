@@ -18,7 +18,7 @@ type Props = {
 
 const defaultProps = buttonDefaults
 
-const ButtonFunction = ({
+const ButtonInternal = ({
 	text,
 	onClick,
 	bgColor,
@@ -56,6 +56,6 @@ const ButtonFunction = ({
 	)
 }
 
-ButtonFunction.defaultProps = defaultProps
+ButtonInternal.defaultProps = defaultProps
 
-export default ButtonFunction
+export default ButtonInternal

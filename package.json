@@ -19,6 +19,7 @@
 		"dompurify": "^2.3.6",
 		"nanoid": "^3.3.3",
 		"next": "^12.1.5",
+		"next-csrf": "^0.2.1",
 		"next-redux-wrapper": "^7.0.5",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",

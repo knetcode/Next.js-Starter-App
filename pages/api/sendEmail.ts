@@ -1,5 +1,6 @@
 const axios = require("axios")
 import generateEmailTemplate from "../../models/emailTemplate"
+import { csrf } from "../../lib/csrf"
 
 const sendEmail = async (email: string, firstName: string, lastName: string, reference: string) => {
 	try {
@@ -26,7 +27,7 @@ const sendEmail = async (email: string, firstName: string, lastName: string, ref
 	}
 }
 
-export default async (req: any, res: any) => {
+const handler = async (req: any, res: any) => {
 	try {
 		sendEmail(req.body.email, req.body.firstName, req.body.lastName, req.body.reference)
 		res.status(200).end()
@@ -35,3 +36,5 @@ export default async (req: any, res: any) => {
 		res.status(500).end()
 	}
 }
+
+export default csrf(handler)
