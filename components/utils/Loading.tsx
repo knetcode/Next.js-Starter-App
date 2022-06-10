@@ -1,5 +1,5 @@
 import React from "react"
-import { useAppSelector } from "../../redux/hooks"
+import { useAppSelector } from "../../redux/config/hooks"
 import Colors from "../../styles/colors"
 
 type Props = {

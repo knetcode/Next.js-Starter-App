@@ -1,8 +1,8 @@
 import React from "react"
 import axios from "axios"
 import Input from "../components/utils/Input"
-import { setFirstName, setLastName } from "../redux/formSlice"
-import { useAppSelector } from "../redux/hooks"
+import { setFirstName, setLastName } from "../redux/slices/formSlice"
+import { useAppSelector } from "../redux/config/hooks"
 import { setup } from "../lib/csrf"
 import ButtonFunction from "../components/utils/ButtonFunction"
 

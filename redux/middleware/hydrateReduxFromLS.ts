@@ -1,5 +1,5 @@
-import { setAuthToken } from "./authSlice"
-import type { AppDispatch } from "./reduxConfig"
+import { setAuthToken } from "../slices/authSlice"
+import type { AppDispatch } from "../config/reduxConfig"
 
 const hydrateAuthToken = (dispatcher: AppDispatch) => {
 	const lsAuth = localStorage.getItem("authToken")

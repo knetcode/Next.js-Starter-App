@@ -2,7 +2,7 @@ import React from "react"
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import GlobalStyles from "../styles/globalStyles"
-import { wrapper } from "../redux/reduxConfig"
+import { wrapper } from "../redux/config/reduxConfig"
 import "../styles/fonts.css"
 
 const App = ({ Component, pageProps }: AppProps) => {

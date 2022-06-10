@@ -3,7 +3,7 @@ import type { Dispatch, SetStateAction } from "react"
 import DOMPurify from "dompurify"
 import { FiEdit } from "react-icons/fi"
 import Colors from "../../styles/colors"
-import { useAppDispatch } from "../../redux/hooks"
+import { useAppDispatch } from "../../redux/config/hooks"
 
 type Props = {
 	type?: "date" | "text" | "number"

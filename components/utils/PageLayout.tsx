@@ -1,7 +1,7 @@
 import Head from "next/head"
 import React, { ReactNode, useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { setWindowWidth } from "../../redux/appSlice"
+import { setWindowWidth } from "../../redux/slices/appSlice"
 
 type Props = {
 	children: ReactNode
