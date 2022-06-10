@@ -1,12 +1,16 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import type { ThunkAction, AnyAction, Action } from "@reduxjs/toolkit"
 import { createWrapper, HYDRATE } from "next-redux-wrapper"
+import authMiddleware from "./authMiddleware"
+
 import appSlice from "./appSlice"
 import formSlice from "./formSlice"
+import authSlice from "./authSlice"
 
 const rootReducer = combineReducers({
 	app: appSlice,
 	form: formSlice,
+	auth: authSlice,
 })
 
 const reducer = (state: ReturnType<typeof rootReducer>, action: AnyAction) => {
@@ -25,6 +29,7 @@ export const makeStore = () =>
 	configureStore({
 		reducer,
 		devTools: process.env.NODE_ENV !== "production",
+		middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(authMiddleware),
 	})
 
 type Store = ReturnType<typeof makeStore>
