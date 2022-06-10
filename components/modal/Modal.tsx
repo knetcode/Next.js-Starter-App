@@ -8,23 +8,27 @@ type Props = {
 	showModal: boolean
 	setShowModal: Dispatch<SetStateAction<boolean>>
 	padding?: string
+	showCloseBtn?: boolean
 } & typeof defaultProps
 
 const defaultProps = {
 	padding: "20px 10px",
+	showCloseBtn: true,
 }
 
-const Modal = ({ children, showModal, setShowModal, padding }: Props) => {
+const Modal = ({ children, showModal, setShowModal, padding, showCloseBtn }: Props) => {
 	return (
 		showModal && (
 			<>
 				<div className="modal-outer">
 					<div className="modal-inner">
-						<div className="close-modal">
-							<button type="button" onClick={() => setShowModal(false)}>
-								<IoCloseCircleSharp size={30} color={Colors.text.dark} />
-							</button>
-						</div>
+						{showCloseBtn && (
+							<div className="close-modal">
+								<button type="button" onClick={() => setShowModal(false)}>
+									<IoCloseCircleSharp size={30} color={Colors.text.dark} />
+								</button>
+							</div>
+						)}
 						{children}
 					</div>
 				</div>
