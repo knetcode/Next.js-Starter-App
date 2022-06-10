@@ -30,10 +30,15 @@ const ButtonSubmit = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<button type="submit" className="btn submit">
-			{text}
-		</button>
+		<div className="btn-wrapper">
+			<button type="submit" className="btn submit">
+				{text}
+			</button>
+		</div>
 		<style jsx>{`
+			.btn-wrapper {
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
+			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -46,7 +51,6 @@ const ButtonSubmit = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}

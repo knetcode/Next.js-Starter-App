@@ -17,12 +17,15 @@ const Colors = {
 		red: "#ED1C24",
 		maroon: "#CE181E",
 		purple: "#5F2F65",
+		violet: "#743c7a",
 		green: "#0A9BA9",
+		pale: "#a4b0be",
 		grey: "#747D8C",
 		yellow: "#FDC231",
 		navy: "#2F3542",
 		stone: "#444c58",
 		teal: "#047B8D",
+		sea: "#177a8b",
 	},
 
 	shoprite: {

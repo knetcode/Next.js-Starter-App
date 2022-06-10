@@ -32,10 +32,15 @@ const ButtonFunction = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<button className="btn function" onClick={onClick} type="button">
-			{text}
-		</button>
+		<div className="btn-wrapper">
+			<button className="btn function" onClick={onClick} type="button">
+				{text}
+			</button>
+		</div>
 		<style jsx>{`
+			.btn-wrapper {
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
+			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -48,7 +53,6 @@ const ButtonFunction = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}

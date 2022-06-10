@@ -34,10 +34,15 @@ const ButtonExternal = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer">
-			{text}
-		</a>
+		<div className="btn-wrapper">
+			<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer">
+				{text}
+			</a>
+		</div>
 		<style jsx>{`
+			.btn-wrapper {
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
+			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -50,7 +55,6 @@ const ButtonExternal = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}

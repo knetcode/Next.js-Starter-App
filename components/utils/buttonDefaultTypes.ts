@@ -7,7 +7,7 @@ const buttonDefaults = {
 	margin: "0px auto",
 	padding: "8px 20px",
 	borderRadius: "50px",
-	fontSize: "25px",
+	fontSize: "18px",
 	fontWeight: "bold",
 	isDisabled: false,
 }

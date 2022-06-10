@@ -33,10 +33,15 @@ const ButtonInternal = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<Link href={link}>
-			<a className="btn internal">{text}</a>
-		</Link>
+		<div className="btn-wrapper">
+			<Link href={link}>
+				<a className="btn internal">{text}</a>
+			</Link>
+		</div>
 		<style jsx>{`
+			.btn-wrapper {
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
+			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -49,7 +54,6 @@ const ButtonInternal = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}
