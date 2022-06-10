@@ -9,7 +9,7 @@ type InitState = {
 
 const initialState: InitState = {
 	windowWidth: 0,
-	isLoading: false,
+	isLoading: true,
 	loadingText: "",
 }
 

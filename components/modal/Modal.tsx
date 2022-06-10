@@ -39,6 +39,7 @@ const Modal = ({ children, showModal, setShowModal, padding }: Props) => {
 						display: flex;
 						justify-content: center;
 						align-items: center;
+						z-index: 10;
 					}
 					.modal-inner {
 						position: relative;

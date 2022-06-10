@@ -21,12 +21,15 @@ type Props = {
 	flexWrap?: "nowrap" | "wrap" | "wrap-reverse"
 	padding?: string
 	width?: string
+	height?: string
+	blockWidth?: string
+	blockHeight?: string
 } & typeof defaultProps
 
 const defaultProps = {
 	children: null,
-	topSkew: true,
-	botSkew: true,
+	topSkew: false,
+	botSkew: false,
 	bgColor: Colors.white,
 	textColor: Colors.text.dark,
 	justifyContent: "center",
@@ -35,6 +38,9 @@ const defaultProps = {
 	flexWrap: "nowrap",
 	padding: "50px 0",
 	width: "80%",
+	height: "auto",
+	blockWidth: "100%",
+	blockHeight: "auto",
 }
 
 const Block = ({
@@ -49,6 +55,9 @@ const Block = ({
 	flexWrap,
 	padding,
 	width,
+	height,
+	blockWidth,
+	blockHeight,
 }: Props) => (
 	<>
 		<section className="block">
@@ -60,8 +69,8 @@ const Block = ({
 		</section>
 		<style jsx>{`
 			.block {
-				width: 100%;
-				height: 100%;
+				width: ${blockWidth};
+				height: ${blockHeight};
 				margin: 0px auto;
 				color: ${textColor};
 				position: relative;
@@ -89,9 +98,14 @@ const Block = ({
 				height: 100%;
 				position: relative;
 				padding: ${padding};
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 			.content {
 				width: ${width};
+				height: ${height};
 				max-width: 1200px;
 				margin: 0 auto;
 				display: flex;

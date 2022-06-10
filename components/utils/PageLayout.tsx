@@ -1,7 +1,9 @@
-import Head from "next/head"
 import React, { ReactNode, useEffect } from "react"
-import { useDispatch } from "react-redux"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import { useAppDispatch, useAppSelector } from "../../redux/config/hooks"
 import { setWindowWidth } from "../../redux/slices/appSlice"
+import Loading from "./Loading"
 
 type Props = {
 	children: ReactNode
@@ -9,11 +11,14 @@ type Props = {
 } & typeof defaultProps
 
 const defaultProps = {
-	title: "My Money Market Account",
+	title: "Computicket | Refund Portal",
 }
 
 const PageLayout = ({ children, title }: Props) => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
+	const router = useRouter()
+
+	const authToken = useAppSelector((state) => state.auth.authToken)
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
@@ -28,11 +33,14 @@ const PageLayout = ({ children, title }: Props) => {
 			<Head>
 				<title>{title}</title>
 			</Head>
-			<div className="page-layout">{children}</div>
+			<div className="page-layout">
+				{router.pathname === "/login" && children}
+				{router.pathname !== "/login" && !authToken && <Loading loadingOverride />}
+				{router.pathname !== "/login" && authToken && children}
+			</div>
 			<style jsx>{`
 				.page-layout {
 					width: 100%;
-					padding-top: 120px;
 				}
 			`}</style>
 		</>

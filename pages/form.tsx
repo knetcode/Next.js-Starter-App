@@ -5,10 +5,12 @@ import { setFirstName, setLastName } from "../redux/slices/formSlice"
 import { useAppSelector } from "../redux/config/hooks"
 import { setup } from "../lib/csrf"
 import ButtonFunction from "../components/utils/ButtonFunction"
+import { setAuthToken } from "../redux/slices/authSlice"
 
 const Form = () => {
 	const firstName = useAppSelector((state) => state.form.firstName)
 	const lastName = useAppSelector((state) => state.form.lastName)
+	const authToken = useAppSelector((state) => state.auth.authToken)
 
 	const csrfHandler = async () => {
 		try {
@@ -38,6 +40,7 @@ const Form = () => {
 			<h1>Form</h1>
 			<Input inputValue={firstName} setInputValue={setFirstName} labelText="First name" />
 			<Input inputValue={lastName} setInputValue={setLastName} labelText="Last name" />
+			<Input inputValue={authToken} setInputValue={setAuthToken} labelText="authtoken" />
 			<ButtonFunction text="CSRF Check" onClick={csrfHandler} />
 		</div>
 	)

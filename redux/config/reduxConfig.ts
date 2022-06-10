@@ -1,7 +1,7 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit"
+import { combineReducers, configureStore, getDefaultMiddleware } from "@reduxjs/toolkit"
 import type { ThunkAction, AnyAction, Action } from "@reduxjs/toolkit"
 import { createWrapper, HYDRATE } from "next-redux-wrapper"
-import authMiddleware from "../middleware/authMiddleware"
+import authMiddleware from "../middleware/authMiddleWare"
 
 import appSlice from "../slices/appSlice"
 import formSlice from "../slices/formSlice"
