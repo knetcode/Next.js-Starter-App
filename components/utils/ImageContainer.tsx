@@ -1,5 +1,7 @@
 import React from "react"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
+
+import type { StaticImageData } from "next/image"
 
 type Props = {
 	src: StaticImageData
@@ -25,6 +27,8 @@ const ImageContainer = ({ src, alt, height, width, loading }: Props) => (
 				height: ${height};
 				width: ${width};
 				position: relative;
+				display: grid;
+				place-content: center;
 			}
 			:global(.img) {
 				height: auto;

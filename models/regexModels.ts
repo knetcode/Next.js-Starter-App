@@ -16,7 +16,8 @@ export const expiryDateRegex =
 	/(^(190[0-9]|191[0-9]|192[0-9]|193[0-9]|194[0-9]|195[0-9]|196[0-9]|197[0-9]|198[0-9]|199[0-9]|200[0-9]|201[0-9]|202[0-9])\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$)/
 
 // Personal
-export const nameRegex = /(^[a-zA-Z \- ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]{3,}$)/
+export const firstNameRegex = /(^[a-zA-Z \- ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]{3,}$)/
+export const lastNameRegex = /(^[a-zA-Z \- ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]{3,}$)/
 export const idNumberRegex = /(^[0-9]{13}$)/
 
 // Cards
@@ -31,6 +32,6 @@ export const postalCodeRegex = /(^[0-9]{4}$)/
 
 // General
 export const alphaRegex = /(^[a-zA-Z\-, &ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]$)/
-export const numericRegex = /(^[0-9]{1,}$)/
-export const alphaNumericRegex = /(^[a-zA-Z0-9\-, &ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]{1,}$)/
+export const numericRegex = /(^[0-9]$)/
+export const alphaNumericRegex = /(^[a-zA-Z0-9\-, &ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ]$)/
 export const numbericDotRegex = /(^[0-9.]$)/

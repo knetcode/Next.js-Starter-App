@@ -1,6 +1,8 @@
 import React from "react"
-import Colors from "../../styles/colors"
+
 import buttonDefaults from "./buttonDefaultTypes"
+
+import Colors from "../../styles/colors"
 
 type Props = {
 	text: string
@@ -32,15 +34,10 @@ const ButtonFunction = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<div className="btn-wrapper">
-			<button className="btn function" onClick={onClick} type="button">
-				{text}
-			</button>
-		</div>
+		<button className="btn function" onClick={onClick} type="button">
+			{text}
+		</button>
 		<style jsx>{`
-			.btn-wrapper {
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
-			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -53,6 +50,7 @@ const ButtonFunction = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}

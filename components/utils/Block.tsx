@@ -1,8 +1,12 @@
-import React, { ReactNode } from "react"
+import React from "react"
+
+import type { ReactNode } from "react"
+
 import Colors from "../../styles/colors"
 
 type Props = {
 	children?: ReactNode | null
+	id?: string
 	topSkew?: boolean
 	botSkew?: boolean
 	bgColor?: string
@@ -21,30 +25,34 @@ type Props = {
 	flexWrap?: "nowrap" | "wrap" | "wrap-reverse"
 	padding?: string
 	width?: string
-	height?: string
-	blockWidth?: string
-	blockHeight?: string
+	maxWidth?: string
+	contentMargin?: string
+	zIndex?: string
+	bgImage?: string
 } & typeof defaultProps
 
 const defaultProps = {
 	children: null,
-	topSkew: false,
-	botSkew: false,
+	id: "",
+	topSkew: true,
+	botSkew: true,
 	bgColor: Colors.white,
 	textColor: Colors.text.dark,
 	justifyContent: "center",
 	alignItems: "center",
 	gap: "50px",
 	flexWrap: "nowrap",
-	padding: "50px 0",
+	padding: "80px 0",
 	width: "80%",
-	height: "auto",
-	blockWidth: "100%",
-	blockHeight: "auto",
+	maxWidth: "1200px",
+	contentMargin: "0px auto",
+	zIndex: "unset",
+	bgImage: "none",
 }
 
 const Block = ({
 	children,
+	id,
 	topSkew,
 	botSkew,
 	bgColor,
@@ -55,12 +63,13 @@ const Block = ({
 	flexWrap,
 	padding,
 	width,
-	height,
-	blockWidth,
-	blockHeight,
+	maxWidth,
+	contentMargin,
+	zIndex,
+	bgImage,
 }: Props) => (
 	<>
-		<section className="block">
+		<section className="block" id={id}>
 			{topSkew && <div className="top skew" />}
 			<div className="inner">
 				<div className="content">{children}</div>
@@ -69,13 +78,14 @@ const Block = ({
 		</section>
 		<style jsx>{`
 			.block {
-				width: ${blockWidth};
-				height: ${blockHeight};
+				width: 100%;
+				height: 100%;
 				margin: 0px auto;
 				color: ${textColor};
 				position: relative;
 				margin-top: ${topSkew ? "-81px" : "0"};
 				margin-bottom: ${botSkew ? "-80px" : "0"};
+				z-index: ${zIndex};
 			}
 			.skew {
 				width: 100%;
@@ -98,16 +108,24 @@ const Block = ({
 				height: 100%;
 				position: relative;
 				padding: ${padding};
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
+			}
+			.inner::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-image: ${bgImage};
+				background-repeat: repeat;
+				background-position: center center;
+				opacity: 0.15;
 			}
 			.content {
+				position: relative;
 				width: ${width};
-				height: ${height};
-				max-width: 1200px;
-				margin: 0 auto;
+				max-width: ${maxWidth};
+				margin: ${contentMargin};
 				display: flex;
 				flex-direction: column;
 				align-items: ${alignItems};

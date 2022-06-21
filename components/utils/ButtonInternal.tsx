@@ -1,7 +1,9 @@
 import React from "react"
 import Link from "next/link"
-import Colors from "../../styles/colors"
+
 import buttonDefaults from "./buttonDefaultTypes"
+
+import Colors from "../../styles/colors"
 
 type Props = {
 	text: string
@@ -33,15 +35,10 @@ const ButtonInternal = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<div className="btn-wrapper">
-			<Link href={link}>
-				<a className="btn internal">{text}</a>
-			</Link>
-		</div>
+		<Link href={link}>
+			<a className="btn internal">{text}</a>
+		</Link>
 		<style jsx>{`
-			.btn-wrapper {
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
-			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -54,6 +51,7 @@ const ButtonInternal = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}

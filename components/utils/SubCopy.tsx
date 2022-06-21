@@ -15,12 +15,12 @@ const defaultProps = {
 	textColor: Colors.text.dark,
 }
 
-const SubText = ({ children, fontWeight, fontSize, textColor }: Props) => {
+const SubCopy = ({ children, fontWeight, fontSize, textColor }: Props) => {
 	return (
 		<>
-			<p className="sub-text">{children}</p>
+			<p className="sub-copy">{children}</p>
 			<style jsx>{`
-				.sub-text {
+				.sub-copy {
 					font-weight: ${fontWeight};
 					font-size: ${fontSize};
 					color: ${textColor};
@@ -30,6 +30,6 @@ const SubText = ({ children, fontWeight, fontSize, textColor }: Props) => {
 	)
 }
 
-SubText.defaultProps = defaultProps
+SubCopy.defaultProps = defaultProps
 
-export default SubText
+export default SubCopy

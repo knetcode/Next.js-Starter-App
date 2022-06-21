@@ -1,6 +1,8 @@
 import React from "react"
-import Colors from "../../styles/colors"
+
 import buttonDefaults from "./buttonDefaultTypes"
+
+import Colors from "../../styles/colors"
 
 type Props = {
 	text: string
@@ -30,15 +32,10 @@ const ButtonSubmit = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<div className="btn-wrapper">
-			<button type="submit" className="btn submit">
-				{text}
-			</button>
-		</div>
+		<button type="submit" className="btn submit">
+			{text}
+		</button>
 		<style jsx>{`
-			.btn-wrapper {
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
-			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -51,6 +48,7 @@ const ButtonSubmit = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}
@@ -61,3 +59,4 @@ const ButtonSubmit = ({
 ButtonSubmit.defaultProps = defaultProps
 
 export default ButtonSubmit
+/*  */

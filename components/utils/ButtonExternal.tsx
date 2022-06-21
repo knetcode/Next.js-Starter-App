@@ -1,6 +1,8 @@
 import React from "react"
-import Colors from "../../styles/colors"
+
 import buttonDefaults from "./buttonDefaultTypes"
+
+import Colors from "../../styles/colors"
 
 type Props = {
 	text: string
@@ -34,15 +36,10 @@ const ButtonExternal = ({
 	fontWeight,
 }: Props) => (
 	<>
-		<div className="btn-wrapper">
-			<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer">
-				{text}
-			</a>
-		</div>
+		<a href={link} target={newTab ? "_blank" : "_self"} className="btn external" rel="noreferrer">
+			{text}
+		</a>
 		<style jsx>{`
-			.btn-wrapper {
-				cursor: ${isDisabled ? "not-allowed" : "pointer"};
-			}
 			.btn {
 				display: block;
 				width: min-content;
@@ -55,6 +52,7 @@ const ButtonExternal = ({
 				color: ${textColor};
 				font-size: ${fontSize};
 				font-weight: ${fontWeight};
+				cursor: ${isDisabled ? "not-allowed" : "pointer"};
 				pointer-events: ${isDisabled ? "none" : "all"};
 				white-space: nowrap;
 			}
